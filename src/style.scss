@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Body and Container */
+/* Body e Container */
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -14,7 +14,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Headings */
+/* Da qui la head */
 h1, h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -25,7 +25,7 @@ h1 {
   font-size: 2.5em;
 }
 
-/* Form Styles */
+/* Stile Form */
 .form-group {
   margin-bottom: 15px;
 }
@@ -41,7 +41,7 @@ h1 {
   font-size: 1em;
 }
 
-/* Button Styles */
+/* Stile Bottoni */
 .btn-primary, .btn-danger, .btn-warning {
   width: 100%;
   padding: 10px;
@@ -76,7 +76,7 @@ h1 {
   background-color: #e0a800;
 }
 
-/* Table Styles */
+/* Stile Tabelle */
 .table-responsive {
   margin-top: 20px;
 }
@@ -109,12 +109,12 @@ h1 {
   padding: 10px;
 }
 
-/* Alert Styles */
+/* Stile Alerts */
 .alert {
   margin-top: 20px;
 }
 
-/* Text Center */
+/* Testo centrale */
 .text-center {
   margin-top: 20px;
   color: #343a40;
@@ -143,7 +143,6 @@ h1 {
   color: #ffc107 !important;
 }
 
-/* Background for Container */
 .container-fluid {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 10px;

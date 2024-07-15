@@ -23,3 +23,11 @@ body {
   --mdc-snackbar-container-color: var(--success-color);
   --mat-mdc-snack-bar-button-color: var(--white-color);
 }
+
+.has-error .form-control {
+  border-color: red;
+}
+
+.has-error .text-danger {
+  color: red;
+}

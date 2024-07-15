@@ -1,24 +1,36 @@
 <div class="container">
   <h2>Aggiorna Offerta di Lavoro</h2>
   <form [formGroup]="offertaForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('offertaLavoroID')}">
       <label for="offertaLavoroID">ID Offerta</label>
       <input type="text" id="offertaLavoroID" formControlName="offertaLavoroID" class="form-control" required />
+      <div *ngIf="isFieldInvalid('offertaLavoroID')" class="text-danger">
+        L'ID dell'offerta è obbligatorio.
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('titolo')}">
       <label for="titolo">Titolo</label>
       <input type="text" id="titolo" formControlName="titolo" class="form-control" required />
+      <div *ngIf="isFieldInvalid('titolo')" class="text-danger">
+        Il titolo è obbligatorio.
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('descrizioneBreve')}">
       <label for="descrizioneBreve">Descrizione Breve</label>
       <input type="text" id="descrizioneBreve" formControlName="descrizioneBreve" class="form-control" required />
+      <div *ngIf="isFieldInvalid('descrizioneBreve')" class="text-danger">
+        La descrizione breve è obbligatoria.
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'has-error': isFieldInvalid('retribuzioneLorda')}">
       <label for="retribuzioneLorda">Retribuzione Lorda</label>
       <input type="number" id="retribuzioneLorda" formControlName="retribuzioneLorda" class="form-control" required min="0" />
+      <div *ngIf="isFieldInvalid('retribuzioneLorda')" class="text-danger">
+        La retribuzione lorda deve essere un valore positivo.
+      </div>
     </div>
 
     <div class="form-group">

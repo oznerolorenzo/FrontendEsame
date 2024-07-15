@@ -14,5 +14,5 @@ export class AppComponent {
   // logout() {
   //   this.authSrv.logout();
   // }
-  title = 'CreditCard';
+  title = 'OfferteLavoro';
 }

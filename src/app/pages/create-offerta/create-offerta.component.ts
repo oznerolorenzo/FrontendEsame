@@ -9,8 +9,9 @@ import { OffertaLavoroService } from '../../services/offerta-lavoro.service';
 })
 export class CreateOffertaComponent implements OnInit {
   offertaForm: FormGroup;
-  successMessage: string;
-  errorMessage: string;
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
+  offerte: any[] = [];
 
   constructor(private fb: FormBuilder, private offertaLavoroService: OffertaLavoroService) {
     this.offertaForm = this.fb.group({
@@ -19,11 +20,17 @@ export class CreateOffertaComponent implements OnInit {
       retribuzioneLorda: ['', [Validators.required, Validators.min(0)]],
       dataInserimento: ['']
     });
-    this.successMessage = '';
-    this.errorMessage = '';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadOfferte();
+  }
+
+  loadOfferte() {
+    this.offertaLavoroService.getOfferte(10).subscribe(offerte => {
+      this.offerte = offerte;
+    });
+  }
 
   onSubmit() {
     if (this.offertaForm.valid) {
@@ -37,6 +44,7 @@ export class CreateOffertaComponent implements OnInit {
           this.successMessage = 'Offerta di lavoro creata con successo';
           this.errorMessage = '';
           this.offertaForm.reset();
+          this.loadOfferte();
         },
         (error) => {
           this.successMessage = '';
@@ -44,5 +52,10 @@ export class CreateOffertaComponent implements OnInit {
         }
       );
     }
+  }
+
+  isFieldInvalid(field: string): boolean {
+    const control = this.offertaForm.get(field);
+    return control ? control.invalid && (control.dirty || control.touched) : false;
   }
 }
