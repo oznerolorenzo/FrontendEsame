@@ -8,7 +8,7 @@ import { OffertaLavoroService } from '../../services/offerta-lavoro.service';
 })
 export class HomeComponent implements OnInit {
   offerte: any[] = [];
-  maxOfferte: number = 10;
+  maxOfferte: number = 100;
 
   constructor(private offertaLavoroService: OffertaLavoroService) { }
 
