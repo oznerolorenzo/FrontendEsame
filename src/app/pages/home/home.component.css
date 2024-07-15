@@ -1,0 +1,43 @@
+/* Styles for HomeComponent */
+h2 {
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table thead th {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  font-size: 1.1em;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.text-center {
+  margin-top: 20px;
+  color: #343a40;
+}

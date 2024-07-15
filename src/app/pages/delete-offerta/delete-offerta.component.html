@@ -1,0 +1,15 @@
+<h2>Elimina Offerta di Lavoro</h2>
+<form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
+  <div class="form-group">
+    <label for="offertaLavoroID">ID Offerta</label>
+    <input type="text" id="offertaLavoroID" formControlName="offertaLavoroID" class="form-control" />
+    <div *ngIf="deleteForm.get('offertaLavoroID')?.invalid && (deleteForm.get('offertaLavoroID')?.touched || deleteForm.get('offertaLavoroID')?.dirty)" class="text-danger">
+      Inserisci un ID valido.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-danger" [disabled]="deleteForm.invalid">Elimina Offerta</button>
+</form>
+
+<div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>

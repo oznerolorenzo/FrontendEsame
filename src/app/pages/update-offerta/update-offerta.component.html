@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Aggiorna Offerta di Lavoro</h2>
+  <form [formGroup]="offertaForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="offertaLavoroID">ID Offerta</label>
+      <input type="text" id="offertaLavoroID" formControlName="offertaLavoroID" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="titolo">Titolo</label>
+      <input type="text" id="titolo" formControlName="titolo" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="descrizioneBreve">Descrizione Breve</label>
+      <input type="text" id="descrizioneBreve" formControlName="descrizioneBreve" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="retribuzioneLorda">Retribuzione Lorda</label>
+      <input type="number" id="retribuzioneLorda" formControlName="retribuzioneLorda" class="form-control" required min="0" />
+    </div>
+
+    <div class="form-group">
+      <label for="dataInserimento">Data Inserimento</label>
+      <input type="date" id="dataInserimento" formControlName="dataInserimento" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Aggiorna Offerta</button>
+  </form>
+
+  <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+</div>

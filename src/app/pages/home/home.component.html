@@ -1,0 +1,26 @@
+<h2>Lista delle Offerte di Lavoro</h2>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titolo</th>
+        <th>Descrizione Breve</th>
+        <th>Data Inserimento</th>
+        <th>Retribuzione Lorda</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offerta of offerte">
+        <td>{{ offerta.offertaLavoroID }}</td>
+        <td>{{ offerta.titolo }}</td>
+        <td>{{ offerta.descrizioneBreve }}</td>
+        <td>{{ offerta.dataInserimento | date: 'dd/MM/yyyy, HH:mm' }}</td>
+        <td>{{ offerta.retribuzioneLorda | currency: 'EUR' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="offerte.length === 0" class="text-center mt-4">
+  <p>Nessuna offerta di lavoro trovata.</p>
+</div>

@@ -1,0 +1,48 @@
+<h2>Ricerca Offerte di Lavoro</h2>
+<form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+  <div class="form-group">
+    <label for="query">Testo di Ricerca</label>
+    <input type="text" id="query" formControlName="query" class="form-control" />
+    <div *ngIf="searchForm.get('query')?.invalid && (searchForm.get('query')?.touched || searchForm.get('query')?.dirty)" class="text-danger">
+      Inserisci un testo di ricerca valido.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="max">Numero Massimo di Offerte</label>
+    <input type="number" id="max" formControlName="max" class="form-control" />
+    <div *ngIf="searchForm.get('max')?.invalid && (searchForm.get('max')?.touched || searchForm.get('max')?.dirty)" class="text-danger">
+      Inserisci un numero valido.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="searchForm.invalid">Cerca</button>
+</form>
+
+<div class="table-responsive" *ngIf="results.length > 0">
+  <h3>Risultati della Ricerca</h3>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titolo</th>
+        <th>Descrizione Breve</th>
+        <th>Data Inserimento</th>
+        <th>Retribuzione Lorda</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offerta of results">
+        <td>{{ offerta.offertaLavoroID }}</td>
+        <td>{{ offerta.titolo }}</td>
+        <td>{{ offerta.descrizioneBreve }}</td>
+        <td>{{ offerta.dataInserimento | date: 'dd/MM/yyyy, HH:mm' }}</td>
+        <td>{{ offerta.retribuzioneLorda | currency: 'EUR' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="results.length === 0" class="text-center mt-4">
+  <p>Nessuna offerta di lavoro trovata.</p>
+</div>
